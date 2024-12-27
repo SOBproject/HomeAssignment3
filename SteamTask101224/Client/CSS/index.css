@@ -1,0 +1,156 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1b1b1b;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+/* Apply box-sizing universally */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Header Styling */
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #00cc66;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Style for "Go to" buttons */
+.goto-button {
+    background-color: #007acc;
+    color: #ffffff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1em;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 10px auto; /* Adds spacing between buttons */
+    display: block; /* Centers the button */
+    text-align: center;
+    width: fit-content; /* Ensures buttons fit the text width */
+    font-weight: bold;
+}
+
+    /* Hover effect for "Go to" buttons */
+    .goto-button:hover {
+        background-color: #005f99;
+        transform: scale(1.1); /* Slightly enlarges the button on hover */
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5); /* Adds a hover shadow */
+    }
+
+/* Container for the games */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Fixed to 4 cards per row */
+    gap: 40px; /* Increased gap between cards */
+    justify-items: center;
+    padding: 50px; /* Increased padding for container */
+    background: linear-gradient(180deg, #202020, #1b1b1b);
+}
+
+/* Individual game cards */
+.card {
+    background-color: #2b2b2b;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden; /* Ensures no content overflows the card boundaries */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 320px; /* Enlarged the card width */
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between elements inside the card */
+}
+
+    /* Add hover effect for the card */
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Game image */
+    .card img {
+        display: block; /* Ensures no gap below the image */
+        width: 100%; /* Ensures the image fills the width of the card */
+        height: auto; /* Maintains the aspect ratio */
+        object-fit: cover; /* Prevents stretching and ensures the image fits perfectly */
+        border-bottom: 4px solid #555; /* Border below the image */
+    }
+
+    /* Heading styling */
+    .card h3 {
+        margin: 0;
+        padding-left: 15px; /* Add left padding for the heading */
+        font-size: 1.4em; /* Larger font size */
+        color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    /* Paragraph styling */
+    .card p {
+        margin: 0;
+        padding-left: 15px; /* Add left padding for paragraphs */
+        font-size: 1em; /* Slightly larger font size */
+        color: #cccccc;
+        text-align: left;
+    }
+
+    /* Button inside cards */
+    .card button {
+        align-self: center; /* Center the button horizontally */
+        background-color: #00cc66;
+        color: #ffffff;
+        border: none;
+        padding: 12px 20px; /* Larger button padding */
+        font-size: 1em; /* Larger font size for button */
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        font-weight: bold;
+    }
+
+        /* Add hover effect for the button inside cards */
+        .card button:hover {
+            background-color: #00994c;
+            transform: scale(1.05);
+        }
+
+    /* Subtle glowing effect on hover for the image */
+    .card:hover img {
+        filter: brightness(1.2);
+    }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-container {
+        padding: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust for smaller screens */
+    }
+
+    .card {
+        width: 100%; /* Allow cards to take full width on smaller screens */
+    }
+
+        .card img {
+            height: auto; /* Ensure proper scaling for smaller screens */
+        }
+
+    /* Go to buttons take full width on smaller screens */
+    .goto-button {
+        width:  100%;
+            
+    }
+}

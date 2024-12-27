@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+
+    <script src="../JS/ajaxcalls.js"></script>
+    <script src="../JS/gameslist.js"></script>
+    <link   rel="stylesheet" href="../CSS/index.css">
+    <title>Game Store</title>
+</head>
+<body>
+    <h1>Games:</h1>
+    <button class="goto-button" onclick="window.location.href='myGames.html';">Go to My Games</button>
+    <button class="goto-button" onclick="window.location.href='login.html';">Go to Login Page</button>
+    <div class="card-container" id="gamescontainer"></div>
+
+    <script>
+        $(document).ready(function () {
+
+            renderGames(GAME);
+
+          
+            $(document).on("click", ".AddBTN", function () {
+                const index = $(this).data("index");
+                const selectedGame = GAME[index];
+
+                AddToList(selectedGame);
+            });
+        });
+
+        function renderGames(GAME) {
+            const gamesContainer = document.getElementById("gamescontainer");
+            gamesContainer.innerHTML = "";
+
+            GAME.forEach((game, i) => {
+                const card = document.createElement("div");
+                card.classList.add("card");
+                card.innerHTML = `
+                            <img src="${game.Header_image}" alt="${game.Name}">
+                            <h3>${game.Name}</h3>
+                            <p><strong>Release Date:</strong> ${game.Release_date}</p>
+                           <p><strong>Price:</strong> ${game.Price}</p>
+                           <p><strong>Score Rank:</strong> ${game.Score_rank}</p>
+                           <button class="AddBTN" data-index="${i}">Add to my list</button>`;
+                gamesContainer.appendChild(card);
+            });
+        }
+
+        function AddToList(game) {
+            const api = "https://localhost:7238/api/Games";
+            const gameToAdd =
+            {
+                appid: game.AppID,
+                name: game.Name,
+                releaseDate: new Date(game.Release_date).toISOString(),
+                price: parseFloat(game.Price),
+                description: game.description,
+                Full_audio_languages: game.Full_audio_languages,
+                Header_image: game.Header_image,
+                website: game.Website,
+                windows: game.Windows === "TRUE",
+                mac: game.Mac === "TRUE",
+                linux: game.Linux === "TRUE",
+                scoreRank: parseInt(game.Score_rank),
+                recommendations: game.Recommendations,
+                developers: game.Developers,
+                categories: game.Categories,
+                genres: game.Genres,
+                tags: game.Tags,
+                screenshots: game.Screenshots
+
+            }
+
+            ajaxCall("POST", api, JSON.stringify(gameToAdd), AddToListSCB, AddToListSCB);
+        }
+
+        function AddToListSCB(status) {
+            console.log(status);
+        }
+
+        function AddToListECB(error) {
+            console.error("SOMETHINGS WRONG", error);
+            alert("GAME not ADDED :(");
+        }
+    </script>
+</body>
+</html>
