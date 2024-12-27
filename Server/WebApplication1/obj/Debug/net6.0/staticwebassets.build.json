@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "Qo9Hf6whF8VXX0U22WSwAuDQOgLhUMUMxreXJ4d37Z0=",
+  "Source": "SteamTaskServer",
+  "BasePath": "_content/SteamTaskServer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
