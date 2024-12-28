@@ -148,26 +148,6 @@
   },
   {
     "ContainingType": "FakeSteam.Controllers.UsersController",
-    "Method": "Get",
-    "RelativePath": "api/Users",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[FakeSteam.BL.AppUser, SteamTaskServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "FakeSteam.Controllers.UsersController",
     "Method": "Post",
     "RelativePath": "api/Users",
     "HttpMethod": "POST",
@@ -180,7 +160,13 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "FakeSteam.Controllers.UsersController",
@@ -230,21 +216,5 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "FakeSteam.Controllers.UsersController",
-    "Method": "Login",
-    "RelativePath": "api/Users/login",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "loginUser",
-        "Type": "FakeSteam.BL.AppUser",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
   }
 ]

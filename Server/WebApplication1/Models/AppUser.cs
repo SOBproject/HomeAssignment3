@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using SteamTaskServer.DAL;
 
 namespace FakeSteam.BL
 {
@@ -15,8 +16,7 @@ namespace FakeSteam.BL
         [JsonPropertyName("password")]
         public string password;
 
-        public static List<AppUser> UsersList = new List<AppUser>();
-        private static int currentId = 1;
+  
 
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
@@ -29,21 +29,11 @@ namespace FakeSteam.BL
             Email = email;
             Password = password;
         }
-        public static bool Insert(AppUser newUser)
+        public int Insert()
         {
-
-            if (UsersList.Any(user => user.email == newUser.email))
-            {
-                return false;
-            }
-
-            newUser.id = currentId++;
-            UsersList.Add(newUser);
-            return true;
+            DBServices dbs= new DBServices();
+            return dbs.Insert(this);
         }
-        public List<AppUser> Read() 
-        { 
-            return UsersList;
-        }
+    
     }
 }

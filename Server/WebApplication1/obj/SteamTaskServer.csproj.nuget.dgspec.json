@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\orima\\Desktop\\SteamTask091224\\Server\\WebApplication1\\SteamTaskServer.csproj": {}
+    "C:\\Users\\orima\\Desktop\\שנה ד\\צד שרת\\SteamTask3\\HomeAssignment3\\Server\\WebApplication1\\SteamTaskServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\orima\\Desktop\\SteamTask091224\\Server\\WebApplication1\\SteamTaskServer.csproj": {
+    "C:\\Users\\orima\\Desktop\\שנה ד\\צד שרת\\SteamTask3\\HomeAssignment3\\Server\\WebApplication1\\SteamTaskServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\orima\\Desktop\\SteamTask091224\\Server\\WebApplication1\\SteamTaskServer.csproj",
+        "projectUniqueName": "C:\\Users\\orima\\Desktop\\שנה ד\\צד שרת\\SteamTask3\\HomeAssignment3\\Server\\WebApplication1\\SteamTaskServer.csproj",
         "projectName": "SteamTaskServer",
-        "projectPath": "C:\\Users\\orima\\Desktop\\SteamTask091224\\Server\\WebApplication1\\SteamTaskServer.csproj",
+        "projectPath": "C:\\Users\\orima\\Desktop\\שנה ד\\צד שרת\\SteamTask3\\HomeAssignment3\\Server\\WebApplication1\\SteamTaskServer.csproj",
         "packagesPath": "C:\\Users\\orima\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\orima\\Desktop\\SteamTask091224\\Server\\WebApplication1\\obj\\",
+        "outputPath": "C:\\Users\\orima\\Desktop\\שנה ד\\צד שרת\\SteamTask3\\HomeAssignment3\\Server\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -53,6 +53,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.9.0, )"
             }
           },
           "imports": [

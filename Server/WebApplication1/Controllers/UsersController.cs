@@ -10,57 +10,50 @@ namespace FakeSteam.Controllers
     public class UsersController : ControllerBase
     {
         // GET: api/<UsersController>
-        [HttpGet]
-        public IEnumerable<AppUser> Get()
-        {
-            return AppUser.UsersList;
-        }
+        //[HttpGet]
+        //public IEnumerable<AppUser> Get()
+        //{
+  
+        //}
 
         // GET api/<UsersController>/5
-        [HttpPost("login")]
-        public IActionResult Login([FromBody] AppUser loginUser)
-        {
-            // Validate that both Email and Password are provided
-            if (string.IsNullOrWhiteSpace(loginUser.Email) || string.IsNullOrWhiteSpace(loginUser.Password))
-            {
-                return BadRequest(new { message = "Email and password are required." });
-            }
+        //[HttpPost("login")]
+        //public IActionResult Login([FromBody] AppUser loginUser)
+        //{
+        //    // Validate that both Email and Password are provided
+        //    if (string.IsNullOrWhiteSpace(loginUser.Email) || string.IsNullOrWhiteSpace(loginUser.Password))
+        //    {
+        //        return BadRequest(new { message = "Email and password are required." });
+        //    }
 
-            if (!ModelState.IsValid)
-            {
-                // Remove ModelState errors for fields not required for login
-                ModelState.Remove("Name");
-            }
+        //    if (!ModelState.IsValid)
+        //    {
+        //        // Remove ModelState errors for fields not required for login
+        //        ModelState.Remove("Name");
+        //    }
 
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            // Find user by Email and Password
-            var user = AppUser.UsersList.FirstOrDefault(u => u.Email == loginUser.Email && u.Password == loginUser.Password);
+        //    // Find user by Email and Password
+        //    var user = AppUser.UsersList.FirstOrDefault(u => u.Email == loginUser.Email && u.Password == loginUser.Password);
 
-            if (user != null)
-            {
-                return Ok(new { message = "Login successful!", userId = user.Id, name = user.Name });
-            }
+        //    if (user != null)
+        //    {
+        //        return Ok(new { message = "Login successful!", userId = user.Id, name = user.Name });
+        //    }
 
-            return Unauthorized(new { message = "Invalid email or password." });
-        }
+        //    return Unauthorized(new { message = "Invalid email or password." });
+        //}
 
 
         // POST api/<UsersController>
         [HttpPost]
-        public IActionResult Post([FromBody] AppUser newUser)
+        public void Post([FromBody] AppUser newUser)
         {
-
-            // Use the deserialized object directly without creating a new one
-            if (!AppUser.Insert(newUser))
-            {
-                return BadRequest(new { message = "A user with the same username or email already exists." });
-            }
-
-            return Ok(new { message = "User added successfully!" });
+           newUser.Insert();
         }
 
         // PUT api/<UsersController>/5
