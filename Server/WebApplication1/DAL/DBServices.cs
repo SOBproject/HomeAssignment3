@@ -6,6 +6,8 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Text;
 using FakeSteam.BL;
+using System.Security.Cryptography;
+using System.Xml.Linq;
 
 namespace SteamTaskServer.DAL
 {
@@ -92,5 +94,156 @@ namespace SteamTaskServer.DAL
         }
 
     }
+
+        public List<AppUser> ReadUsers()
+        {
+
+            SqlConnection con;
+            SqlCommand cmd;
+
+            try
+            {
+                con = connect("igroup16_test2"); // create the connection
+            }
+            catch (Exception ex)
+            {
+                // write to log
+                throw (ex);
+            }
+
+            List<AppUser> users = new List<AppUser>();
+
+            cmd = CreateCommandWithStoredProcedureGeneral("SP_ReadUsers", con, null );          // create the command
+
+            SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            while (dataReader.Read())
+            {
+                AppUser u = new AppUser();
+                u.Id = Convert.ToInt32(dataReader["UserID"]);
+                u.Name = dataReader["Name"].ToString();
+                u.Email = dataReader["Email"].ToString();
+                u.Password = dataReader["Password"].ToString();
+                users.Add(u);
+            }
+            return users;
+        }
+
+        public List<Game> ReadGames()
+        {
+
+            SqlConnection con;
+            SqlCommand cmd;
+
+            try
+            {
+                con = connect("igroup16_test2"); // create the connection
+            }
+            catch (Exception ex)
+            {
+                // write to log
+                throw (ex);
+            }
+
+            List<Game> games = new List<Game>();
+
+            cmd = CreateCommandWithStoredProcedureGeneral("SP_ReadGames", con, null);          // create the command
+
+            SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            while (dataReader.Read())
+            {
+                Game g = new Game();
+                g.appid = Convert.ToInt32(dataReader["AppID"]);
+                g.name = dataReader["Name"].ToString();
+                g.releaseDate = Convert.ToDateTime(dataReader["Release_date"]);
+                g.price = Convert.ToDouble(dataReader["Price"]);
+                g.description = dataReader["description"].ToString();
+                g.fullAudioLanguages = dataReader["Full_audio_languages"].ToString();
+                g.headerImage = dataReader["Header_image"].ToString();
+                g.website = dataReader["Website"].ToString();
+                g.windows = Convert.ToBoolean(dataReader["Windows"]);
+                g.mac = Convert.ToBoolean(dataReader["Mac"]);
+                g.linux = Convert.ToBoolean(dataReader["Linux"]);
+                g.scoreRank = Convert.ToInt32(dataReader["Score_rank"]);
+                g.recommendations = dataReader["Recommendations"].ToString();
+                g.developers = dataReader["Developers"].ToString();
+                g.categories = dataReader["Categories"].ToString();
+                g.genres = dataReader["Genres"].ToString();
+                g.tags = dataReader["Tags"].ToString();
+                g.screenshots = dataReader["Screenshots"].ToString();
+                games.Add(g);
+            }
+            return games;
+        }
+
+        public List<Game> GetUserGameList(int userID)
+        {
+
+            SqlConnection con;
+            SqlCommand cmd;
+
+            try
+            {
+                con = connect("igroup16_test2"); // create the connection
+            }
+            catch (Exception ex)
+            {
+                // write to log
+                throw (ex);
+            }
+
+            List<Game> userGameList = new List<Game>();
+
+            Dictionary<string, object> paramDic = new Dictionary<string, object>();
+            paramDic.Add("@userID", userID);
+
+            cmd = CreateCommandWithStoredProcedureGeneral("SP_GetUserGames", con, paramDic);
+
+            try
+            {
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dataReader.Read())
+                {
+                    Game g = new Game();
+                    g.appid = Convert.ToInt32(dataReader["AppID"]);
+                    g.name = dataReader["Name"].ToString();
+                    g.releaseDate = Convert.ToDateTime(dataReader["Release_date"]);
+                    g.price = Convert.ToDouble(dataReader["Price"]);
+                    g.description = dataReader["description"].ToString();
+                    g.fullAudioLanguages = dataReader["Full_audio_languages"].ToString();
+                    g.headerImage = dataReader["Header_image"].ToString();
+                    g.website = dataReader["Website"].ToString();
+                    g.windows = Convert.ToBoolean(dataReader["Windows"]);
+                    g.mac = Convert.ToBoolean(dataReader["Mac"]);
+                    g.linux = Convert.ToBoolean(dataReader["Linux"]);
+                    g.scoreRank = Convert.ToInt32(dataReader["Score_rank"]);
+                    g.recommendations = dataReader["Recommendations"].ToString();
+                    g.developers = dataReader["Developers"].ToString();
+                    g.categories = dataReader["Categories"].ToString();
+                    g.genres = dataReader["Genres"].ToString();
+                    g.tags = dataReader["Tags"].ToString();
+                    g.screenshots = dataReader["Screenshots"].ToString();
+                    userGameList.Add(g);
+                }
+                return userGameList;
+            }
+
+            catch (Exception ex)
+            {
+                // write to log
+                throw (ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    // close the db connection
+                    con.Close();
+                }
+            }
+
+        }
     }
 }   

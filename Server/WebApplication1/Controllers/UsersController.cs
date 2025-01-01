@@ -9,44 +9,25 @@ namespace FakeSteam.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        // GET: api/<UsersController>
-        //[HttpGet]
-        //public IEnumerable<AppUser> Get()
-        //{
-  
-        //}
+        //GET: api/<UsersController>
+        [HttpGet]
+        public IEnumerable<AppUser> Get()
+        {
+            return AppUser.Read();
+        }
 
-        // GET api/<UsersController>/5
-        //[HttpPost("login")]
-        //public IActionResult Login([FromBody] AppUser loginUser)
-        //{
-        //    // Validate that both Email and Password are provided
-        //    if (string.IsNullOrWhiteSpace(loginUser.Email) || string.IsNullOrWhiteSpace(loginUser.Password))
-        //    {
-        //        return BadRequest(new { message = "Email and password are required." });
-        //    }
+        //GET api/<UsersController>/5
+        [HttpPost("Login/{Email}/{Password}")]
+        public IActionResult Login(string Email,string Password)
+        {
+            AppUser user = new AppUser();
+            if (user.Login(Email, Password))
+            {
+                return Ok(new { message = "Login successful!", userId = user.GetUserID(Email)});
+            }
 
-        //    if (!ModelState.IsValid)
-        //    {
-        //        // Remove ModelState errors for fields not required for login
-        //        ModelState.Remove("Name");
-        //    }
-
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-
-        //    // Find user by Email and Password
-        //    var user = AppUser.UsersList.FirstOrDefault(u => u.Email == loginUser.Email && u.Password == loginUser.Password);
-
-        //    if (user != null)
-        //    {
-        //        return Ok(new { message = "Login successful!", userId = user.Id, name = user.Name });
-        //    }
-
-        //    return Unauthorized(new { message = "Invalid email or password." });
-        //}
+            return Unauthorized(new { message = "Invalid email or password." });
+        }
 
 
         // POST api/<UsersController>

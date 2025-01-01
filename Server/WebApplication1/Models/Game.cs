@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
+using SteamTaskServer.DAL;
 
 namespace FakeSteam.BL
 {
@@ -59,10 +60,11 @@ namespace FakeSteam.BL
         [JsonPropertyName("Screenshots")]
         public string screenshots { get; set; }
 
-
+//Constructors
 
         public static List<Game> gamesList = new List<Game>();
 
+        public Game() { }
         public Game(int appid, string name, DateTime releaseDate, double price, string description, string fullAudioLanguages, string headerImage, string website, bool windows, bool mac, bool linux, int scoreRank, string recommendations, string developers, string categories, string genres, string tags, string screenshots)
         {
             this.appid = appid;
@@ -84,7 +86,7 @@ namespace FakeSteam.BL
             this.tags = tags;
             this.screenshots = screenshots;
         }
-
+//Methods
         public static bool Insert(Game NewGame)
         {
             if (gamesList.Any(game => game.appid == NewGame.appid || game.name == NewGame.name))
@@ -109,15 +111,24 @@ namespace FakeSteam.BL
             }
             return false;
         }
-        public static List<Game> Read()
+        static public List<Game> Read()
         {
-            return gamesList;
+            DBServices dbs = new DBServices();
+            return dbs.ReadGames();
+        } //get the general game list
+
+        static public List<Game> Read(int appID) //get a user's game list
+        {
+            DBServices db = new DBServices();  
+            return db.GetUserGameList(appID);
         }
 
         public List<Game> GetByPrice(float MinPrice)
         {
+            DBServices dbs = new DBServices();
             List<Game> selectedGames = new List<Game>();
-            foreach (Game game in gamesList)
+
+            foreach (Game game in dbs.ReadGames())
             {
                 if (game.price > MinPrice)
                 {
@@ -141,6 +152,8 @@ namespace FakeSteam.BL
             }
             return selectedGames;
         }
+
+
     }
     
 }

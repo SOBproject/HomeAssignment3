@@ -12,7 +12,7 @@ namespace FakeSteam.Controllers
     {
         // GET: api/<GamesController>
         [HttpGet]
-        public IEnumerable <Game> Get()
+        public IEnumerable<Game> Get()
         {
             return Game.Read();
         }
@@ -26,6 +26,13 @@ namespace FakeSteam.Controllers
             return game != null
                 ? Ok(game)
                 : NotFound($"Game with ID {id} could not be found");
+        }
+
+
+        [HttpGet("user/{userID}")]
+        public List<Game> GetUserGames(int userID)
+        {
+            return Game.Read(userID);
         }
 
         [HttpGet("minPrice")]
@@ -55,6 +62,8 @@ namespace FakeSteam.Controllers
 
             return rankedList;
         }
+
+
 
 
 
