@@ -7,6 +7,8 @@
     <title>Login / Registration</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../JS/ajaxcalls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <link href="../CSS/login.css" rel="stylesheet" />
 </head>
 <body>
@@ -57,7 +59,7 @@
     </div>
 
     <script>
-        const api = "https://localhost:7238/api/Users";
+        let api = "https://localhost:7238/api/Users";
         // Toggle between login and register forms
         document.getElementById('showRegister').addEventListener('click', function (e) {
             e.preventDefault();
@@ -102,10 +104,18 @@
             ajaxCall("POST", api, JSON.stringify(newUser), registerSCB, registerECB);
             function registerSCB(status) {
                 console.log(status);
-                alert("User registered successfully!");
-                localStorage.setItem("userId", status.userId);
-                localStorage.setItem("userName", status.name);
-                window.location.href = "index.html";
+                Swal.fire({
+                    title: "Welcome",
+                    text: `${status.name}`,
+                    icon: "success",
+                    confirmButtonText: "OK"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        localStorage.setItem("userId", status.userId);
+                        localStorage.setItem("userName", status.name);
+                        window.location.href = "index.html";
+                    }
+                });
             }
 
           
@@ -130,16 +140,24 @@
             };
 
             
-            ajaxCall("POST", api+'/login', JSON.stringify(user), loginSCB, loginECB);
+            ajaxCall("POST", `${api}/Login/${user.email}/${user.password}`,null,loginSCB,loginECB);
         });
 
        
         function loginSCB(response) {
             console.log(response);
-            alert(`Welcome, ${response.name}!`);
-            localStorage.setItem("userId", response.userId);
-            localStorage.setItem("userName", response.name);
-            window.location.href = "index.html"; 
+            Swal.fire({
+                title: "Welcome",
+                text: `${response.userName}`,
+                icon: "success",
+                confirmButtonText: "OK"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    localStorage.setItem("userId", response.userId);
+                    localStorage.setItem("userName", response.userName);
+                    window.location.href = "index.html";
+                }
+            });
         }
 
 
@@ -148,7 +166,12 @@
             if (error.responseJSON && error.responseJSON.message) {
                 alert(`Error: ${error.responseJSON.message}`);
             } else {
-                alert("An unknown error occurred. Please try again.");
+                console.log(response);
+                Swal.fire({
+                    title: "Urmm..",
+                    text: `alert("An unknown error occurred. Please try again.`,
+                    icon: "fail"
+                });
             }
         }
     </script>

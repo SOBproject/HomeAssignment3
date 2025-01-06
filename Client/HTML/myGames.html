@@ -7,24 +7,27 @@
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
             crossorigin="anonymous"></script>
     <script src="../JS/ajaxcalls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <link href="../CSS/gamelist.css" rel="stylesheet" />
     <title>Game Store</title>
 </head>
 <body>
+    <h1 id="greeting"></h1>
     <h1>My Games:</h1>
 
     <div class="filter-container">
         <div>
             <label for="minPriceInput">Minimum Price Filter:</label>
             <input type="number" id="minPriceInput" min="0" step="1">
-            <button onclick="filterByMinPrice()">Filter by Price</button>
         </div>
         <div>
             <label for="minRankInput">Minimum Rank Score Filter:</label>
-            <input type="number" id="minRankInput" min="0" max="100" step="1">
-            <button onclick="filterByMinRank()">Filter by Rank</button>
+            <input type="number" id="minRankInput" min="0" step="1">
+
         </div>
         <div>
+            <button onclick="filterGames()">Filter Games</button>
             <button onclick="loadGameList()">Reset Filters</button>
         </div>
     </div>
@@ -32,95 +35,115 @@
     <button onclick="window.location.href='index.html';">Go to Main Page</button>
     <div class="card-container" id="gamescontainer"></div>
     <script>
-        const api = "https://localhost:7238/api/Games";
+        document.addEventListener('DOMContentLoaded', function () {
+            const userName = localStorage.getItem('userName');
+            const greetingElement = document.getElementById('greeting');
+
+            if (userName) {
+                greetingElement.textContent = `Hello, ${userName}!`;
+            } else {
+                greetingElement.textContent = 'Hello, Guest!';
+            }
+        });
+
+        let api = "https://localhost:7238/api/Games";
 
         $(document).ready(function () {
-        
+
             loadGameList();
         });
 
-        
+
         function loadGameList() {
             ajaxCall(
                 "GET",
-                api,
+                `${api}/userID/${localStorage.getItem("userId")}`,
                 "",
                 function (gamelist) {
                     console.log("Games Loaded:", gamelist);
-                    renderGameList(gamelist); 
+                    renderGameList(gamelist);
                 },
                 function (error) {
                     console.error("Error loading games:", error);
                 }
             );
         }
-        function filterByMinPrice() {
-            
+
+        function filterGames() { //one function to handle all of the filters
+
             const minPrice = document.getElementById('minPriceInput').value;
-            if (!minPrice) {
-                alert('Please enter a minimum price');
-                return;
-            }
-
-
-            ajaxCall(
-                "GET",
-                `${api}/minPrice?minPrice=${minPrice}`,
-                "",
-                function (filteredList) {
-                    console.log("Filtered Games by Price:", filteredList);
-                    renderGameList(filteredList);
-                },
-                function (error) {
-                    console.error("Error filtering games by price:", error);
-                }
-            );
-        }
-
-
-        function filterByMinRank() {
             const minRank = document.getElementById('minRankInput').value;
-            if (!minRank) {
-                alert('Please enter a minimum rank score');
-                return;
+            if (!minPrice && !minRank) {
+                loadGameList();
+            }
+            else if (minPrice && !minRank) {
+                ajaxCall(
+                    "GET",
+                    `${api}/filterPrice/${localStorage.getItem("userId")}/${minPrice}`,
+                    "",
+                    function (filteredList) {
+                        console.log("Filtered Games by Price:", filteredList);
+                        renderGameList(filteredList);
+                    },
+                    function (error) {
+                        console.error("Error filtering games by price:", error);
+                    }
+                );
+            }
+            else if (!minPrice && minRank) {
+                ajaxCall(
+                    "GET",
+                    `${api}/filterRank/${localStorage.getItem("userId")}/${minRank}`,
+                    "",
+                    function (filteredList) {
+                        console.log("Filtered Games by Rank:", filteredList);
+                        renderGameList(filteredList);
+                    },
+                    function (error) {
+                        console.error("Error filtering games by price:", error);
+                    }
+                );
+            }
+            else {
+                ajaxCall(
+                    "GET",
+                    `${api}/filterBoth/${localStorage.getItem("userId")}/${minPrice}/${minRank}`,
+                    "",
+                    function (filteredList) {
+                        console.log("Filtered Games by Rank:", filteredList);
+                        renderGameList(filteredList);
+                    },
+                    function (error) {
+                        console.error("Error filtering games by price:", error);
+                    }
+                );
             }
 
-            ajaxCall(
-                "GET",
-                `${api}/scoreRank/${minRank}`,
-                "",
-                function (filteredList) {
-                    console.log("Filtered Games by Rank:", filteredList);
-                    renderGameList(filteredList);
-                },
-                function (error) {
-                    console.error("Error filtering games by rank:", error);
-                }
-            );
+
         }
 
-       
+
         function renderGameList(gamelist) {
             const gamesContainer = document.getElementById("gamescontainer");
-            gamesContainer.innerHTML = ""; 
+            gamesContainer.innerHTML = "";
 
-            
+
             if (!gamelist || gamelist.length === 0) {
                 gamesContainer.innerHTML = "<p>No games found.</p>";
                 return;
             }
 
-           
+
             gamelist.forEach((game, i) => {
                 const card = document.createElement("div");
                 card.classList.add("card");
                 card.innerHTML = `
-                          <img src="${game.Header_image}" alt="${game.Name}">
-                          <h3>${game.Name}</h3>
-                          <p><strong>Genres:</strong> ${game.Genres}</p>
-                         <p><strong>Price:</strong> ${game.Price}</p>
-                         <p><strong>Score Rank:</strong> ${game.scoreRank}</p>
-                          <button class="DeleteBTN" data-id="${game.AppID}">Delete</button>`;
+                              <img src="${game.Header_image}" alt="${game.Name}">
+                              <h3>${game.Name}</h3>
+                              <p><strong>Genres:</strong> ${game.Genres}</p>
+                             <p><strong>Price:</strong> ${game.Price}</p>
+                             <p><strong>Score Rank:</strong> ${game.scoreRank}</p>
+                              <button class="DeleteBTN" data-id="${game.AppID}">Delete</button>`;
                 gamesContainer.appendChild(card);
             });
 
@@ -132,11 +155,11 @@
 
         function deleteGame(AppID) {
 
-            const UrlToDelete = api + "/" + AppID;
+            const UrlToDelete = `${api}/RemoveGameFromList?userID=${localStorage.getItem("userId")}&appID=${AppID}`;
 
             ajaxCall(
                 "DELETE",
-                UrlToDelete, 
+                UrlToDelete,
                 "",
                 deleteGameSCB,
                 deleteGameECB
@@ -147,7 +170,6 @@
         function deleteGameSCB(status) {
             console.log("Delete Success:", status);
             loadGameList();
-            renderGameList();
         }
 
         function deleteGameECB(error) {

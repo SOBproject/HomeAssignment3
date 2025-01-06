@@ -7,85 +7,106 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
             crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="../JS/ajaxcalls.js"></script>
-    <script src="../JS/gameslist.js"></script>
-    <link   rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../CSS/index.css">
     <title>Game Store</title>
 </head>
 <body>
+    <h1 id="greeting"></h1>
     <h1>Games:</h1>
     <button class="goto-button" onclick="window.location.href='myGames.html';">Go to My Games</button>
     <button class="goto-button" onclick="window.location.href='login.html';">Go to Login Page</button>
     <div class="card-container" id="gamescontainer"></div>
 
     <script>
-        $(document).ready(function () {
+        document.addEventListener('DOMContentLoaded', function () {
+            const userName = localStorage.getItem('userName');
+            const greetingElement = document.getElementById('greeting');
 
-            renderGames(GAME);
-
-          
-            $(document).on("click", ".AddBTN", function () {
-                const index = $(this).data("index");
-                const selectedGame = GAME[index];
-
-                AddToList(selectedGame);
-            });
+            if (userName) {
+                greetingElement.textContent = `Hello, ${userName}!`;
+            } else {
+                greetingElement.textContent = 'Hello, Guest!';
+            }
         });
 
-        function renderGames(GAME) {
+        $(document).ready(function () {   
+            loadAllGames();
+        });
+
+        function loadAllGames() {
+            const api = "https://localhost:7238/api/Games";
+
+            ajaxCall(
+                'GET',
+                api,
+                null,
+                function (games) { // Success callback
+                    renderGames(games);
+                },
+                function (error) { // Error callback
+                    console.error('Failed to load games:', error);
+                    alert('Failed to load games. Please try again later.');
+                }
+            );
+        }
+
+        function renderGames(games) {
             const gamesContainer = document.getElementById("gamescontainer");
             gamesContainer.innerHTML = "";
 
-            GAME.forEach((game, i) => {
+            if (!games || games.length === 0) {
+                gamesContainer.innerHTML = '<p>No games available.</p>';
+                return;
+            }
+
+            games.forEach(game => {
                 const card = document.createElement("div");
                 card.classList.add("card");
                 card.innerHTML = `
-                            <img src="${game.Header_image}" alt="${game.Name}">
-                            <h3>${game.Name}</h3>
-                            <p><strong>Release Date:</strong> ${game.Release_date}</p>
-                           <p><strong>Price:</strong> ${game.Price}</p>
-                           <p><strong>Score Rank:</strong> ${game.Score_rank}</p>
-                           <button class="AddBTN" data-index="${i}">Add to my list</button>`;
+                    <img src="${game.Header_image}" alt="${game.Name}">
+                    <h3>${game.Name}</h3>
+                    <p><strong>Release Date:</strong> ${game.Release_date}</p>
+                    <p><strong>Price:</strong> $${game.Price}</p>
+                    <p><strong>Score Rank:</strong> ${game.scoreRank}</p>
+                    <button class="AddBTN" data-appid="${game.AppID}">Add to my list</button>`;
                 gamesContainer.appendChild(card);
+            });
+
+            // Attach event listeners for Add buttons
+            attachAddButtonListeners();
+        }
+
+        function attachAddButtonListeners() {
+            $(document).on("click", ".AddBTN", function () {
+                const appID = $(this).data("appid");
+                AddToList(appID);
             });
         }
 
-        function AddToList(game) {
-            const api = "https://localhost:7238/api/Games";
-            const gameToAdd =
-            {
-                appid: game.AppID,
-                name: game.Name,
-                releaseDate: new Date(game.Release_date).toISOString(),
-                price: parseFloat(game.Price),
-                description: game.description,
-                Full_audio_languages: game.Full_audio_languages,
-                Header_image: game.Header_image,
-                website: game.Website,
-                windows: game.Windows === "TRUE",
-                mac: game.Mac === "TRUE",
-                linux: game.Linux === "TRUE",
-                scoreRank: parseInt(game.Score_rank),
-                recommendations: game.Recommendations,
-                developers: game.Developers,
-                categories: game.Categories,
-                genres: game.Genres,
-                tags: game.Tags,
-                screenshots: game.Screenshots
-
+        function AddToList(appID) {
+            let api = "https://localhost:7238/api/Games";
+            const userID = localStorage.getItem('userId');
+            if (!userID) {
+                alert('User not logged in. Please log in first.');
+                return;
             }
 
-            ajaxCall("POST", api, JSON.stringify(gameToAdd), AddToListSCB, AddToListSCB);
-        }
-
-        function AddToListSCB(status) {
-            console.log(status);
-        }
-
-        function AddToListECB(error) {
-            console.error("SOMETHINGS WRONG", error);
-            alert("GAME not ADDED :(");
+            ajaxCall(
+                "POST",
+                `${api}/AddGameToMyList?userID=${userID}&appID=${appID}`,
+                null,
+                function (response) {
+                    console.log(response);
+                    alert('Game added successfully!');
+                },
+                function (error) {
+                    console.error("Failed to add game:", error);
+                    alert("Failed to add game. Please try again.");
+                }
+            );
         }
     </script>
 </body>

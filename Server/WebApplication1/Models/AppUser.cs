@@ -60,6 +60,17 @@ namespace FakeSteam.BL
             }
             return 0; 
         }
+
+        public string GetUserName(string email)
+        {
+            DBServices dbs = new DBServices();
+            foreach (AppUser u in dbs.ReadUsers())
+            {
+                if (u.Email == email)
+                { return u.Name; }
+            }
+            return "Error" ;
+        }
         public int Insert()
         {
             DBServices dbs= new DBServices();

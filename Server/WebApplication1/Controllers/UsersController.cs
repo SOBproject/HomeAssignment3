@@ -33,7 +33,7 @@ namespace FakeSteam.Controllers
             AppUser user = new AppUser();
             if (user.Login(Email, Password))
             {
-                return Ok(new { message = "Login successful!", userId = user.GetUserID(Email)});
+                return Ok(new { message = "Login successful!", userId = user.GetUserID(Email), userName = user.GetUserName(Email)});
             }
 
             return Unauthorized(new { message = "Invalid email or password." });
@@ -42,9 +42,34 @@ namespace FakeSteam.Controllers
 
         // POST api/<UsersController>
         [HttpPost]
-        public void Post([FromBody] AppUser newUser)
+        public IActionResult Post([FromBody] AppUser newUser)
         {
-           newUser.Insert();
+            try
+            {
+                int result = newUser.Insert();
+
+                if (result > 0)
+                {
+                    return Ok(new
+                    {
+                        message = "User registered successfully!",
+                        userId = newUser.GetUserID(newUser.Email),
+                        name = newUser.GetUserName(newUser.Email)
+                    });
+                }
+                else
+                {
+                    return BadRequest(new { message = "Failed to register user." });
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    message = "An error occurred during registration.",
+                    details = ex.Message
+                });
+            }
         }
 
         // PUT api/<UsersController>/5

@@ -17,7 +17,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 50,
+          "DockedWidth": 200,
           "SelectedChildIndex": 1,
           "Children": [
             {
@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "Server\\WebApplication1\\Controllers\\GamesController.cs",
               "ToolTip": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Server\\WebApplication1\\Controllers\\GamesController.cs",
               "RelativeToolTip": "Server\\WebApplication1\\Controllers\\GamesController.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAGMAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-31T14:59:49.368Z",
               "EditorCaption": ""
