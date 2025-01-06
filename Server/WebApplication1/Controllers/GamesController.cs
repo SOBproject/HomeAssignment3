@@ -21,7 +21,7 @@ namespace FakeSteam.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var game = Game.gamesList.FirstOrDefault(g => g.appid == id);
+            var game = Game.Read().FirstOrDefault(g => g.appid == id);
 
             return game != null
                 ? Ok(game)
@@ -29,38 +29,28 @@ namespace FakeSteam.Controllers
         }
 
 
-        [HttpGet("user/{userID}")]
+        [HttpGet("userID/{userID}")]
         public List<Game> GetUserGames(int userID)
         {
             return Game.Read(userID);
         }
 
-        [HttpGet("minPrice")]
-        public List<Game> GetByPrice(int minPrice)
+        [HttpGet("filterPrice/{userID}/{minPrice}")]
+        public List<Game> GetPricedList(int userID,float minPrice)
         {
-            List<Game> pricedList = new List<Game>();
-
-            foreach (var game in Game.gamesList)
-            {
-                if (game.price >= minPrice)
-                    pricedList.Add(game);
-            }
-
-            return pricedList;
+            return Game.GetPricedList(userID,minPrice);
         }
 
-        [HttpGet("scoreRank/{scoreRank}")]
-        public List<Game> GetByScoreRank(int scoreRank)
+        [HttpGet("filterRank/{userID}/{minRank}")]
+        public List<Game> GetRankedList(int userID,int minRank)
         {
-            List<Game> rankedList = new List<Game>();
+            return Game.GetRankedList(userID, minRank);
+        }
 
-            foreach (var game in Game.gamesList)
-            {
-                if (game.scoreRank >= scoreRank)
-                    rankedList.Add(game);
-            }
-
-            return rankedList;
+        [HttpGet("filterBoth/{userID}/{minPrice}/{minRank}")]
+        public List<Game> GetPricedAndRankedList(int userID,float minPrice,int minRank)
+        {
+            return Game.GetPricedAndRankedList(userID,minPrice,minRank);
         }
 
 
@@ -68,19 +58,24 @@ namespace FakeSteam.Controllers
 
 
         // POST api/<GamesController>
-        [HttpPost]
-      public IActionResult Post([FromBody] Game game)
+        [HttpPost("AddGameToMyList")]
+      public IActionResult AddGameToMyList(int userID, int appID)
         {
-            bool x = Game.Insert(game);
-            if (x)
+            int numEffected = Game.Insert(userID,appID);
+            if (numEffected==2)
             {
                 return Ok(new
                 {
                     message = "Game added successfully",
-                    gameCount = Game.gamesList.Count
                 });
             }
-
+            if (numEffected == -1)
+            {
+                return BadRequest(new
+                {
+                    message = "Game is already in your list!",
+                });
+            }
             return BadRequest("Adding the game has failed. Please try again.");
         }
 
@@ -91,20 +86,18 @@ namespace FakeSteam.Controllers
         }
 
         // DELETE api/<GamesController>/5
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        [HttpDelete("RemoveGameFromList")]
+        public IActionResult DeleteGameFromList(int userID, int appID)
         {
-            // Use the route parameter directly instead of from body
-            bool x = Game.DeleteById(id);
-            if (x)
+            int numEffected = Game.Delete(userID, appID);
+            if (numEffected == 2)
             {
                 return Ok(new
                 {
-                    message = "Game deleted successfully",
-                    gameCount = Game.gamesList.Count
+                    message = "Game removed successfully",
                 });
             }
-            return BadRequest("Failed deleting the game");
+            return BadRequest("Removing the game has failed. Please try again.");
         }
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SteamTaskServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+18116d56006db5068bdffd2e41ce30b1d886b96f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e6050a9103db3166c1cb6a68a0fede13e2ded619")]
 [assembly: System.Reflection.AssemblyProductAttribute("SteamTaskServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SteamTaskServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

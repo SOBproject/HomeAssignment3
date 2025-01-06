@@ -13,7 +13,7 @@ namespace SteamTaskServer.DAL
 {
     public class DBServices
     {
-
+//Basic connections
         public SqlConnection connect(String conString)
         {
 
@@ -50,7 +50,33 @@ namespace SteamTaskServer.DAL
             return cmd;
         }
 
-         public int Insert(AppUser user)
+        private SqlCommand CreateCommandWithStoredProcedureUser(String spName, SqlConnection con, AppUser user)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.Connection = con; 
+
+            cmd.CommandText = spName;  
+
+            cmd.CommandTimeout = 10; 
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@UserID", user.Id);
+
+            cmd.Parameters.AddWithValue("@Name", user.Name);
+
+            cmd.Parameters.AddWithValue("@Email", user.Email);
+
+            cmd.Parameters.AddWithValue("@Password", user.Password);
+
+
+            return cmd;
+        }
+
+        //User functions
+        public int Insert(AppUser user)
     {
 
         SqlConnection con;
@@ -95,6 +121,45 @@ namespace SteamTaskServer.DAL
 
     }
 
+        public int Update(AppUser user)
+        {
+            SqlConnection con;
+            SqlCommand cmd;
+
+            try
+            {
+                con = connect("igroup16_test2"); // create the connection
+            }
+            catch (Exception ex)
+            {
+                // write to log
+                throw (ex);
+            }
+
+            cmd = CreateCommandWithStoredProcedureUser("SP_UpdateUserDetails ", con, user);
+
+            try
+            {
+                int numEffected = cmd.ExecuteNonQuery(); // execute the command
+                return numEffected;
+            }
+            catch (Exception ex)
+            {
+                // write to log
+                throw (ex);
+            }
+
+            finally
+            {
+                if (con != null)
+                {
+                    // close the db connection
+                    con.Close();
+                }
+            }
+
+        }
+
         public List<AppUser> ReadUsers()
         {
 
@@ -129,6 +194,7 @@ namespace SteamTaskServer.DAL
             return users;
         }
 
+//Game functions
         public List<Game> ReadGames()
         {
 
@@ -172,6 +238,7 @@ namespace SteamTaskServer.DAL
                 g.genres = dataReader["Genres"].ToString();
                 g.tags = dataReader["Tags"].ToString();
                 g.screenshots = dataReader["Screenshots"].ToString();
+                g.numberOfPurchases = Convert.ToInt32(dataReader["numberOfPurchases"]);
                 games.Add(g);
             }
             return games;
@@ -225,6 +292,7 @@ namespace SteamTaskServer.DAL
                     g.genres = dataReader["Genres"].ToString();
                     g.tags = dataReader["Tags"].ToString();
                     g.screenshots = dataReader["Screenshots"].ToString();
+                    g.numberOfPurchases = Convert.ToInt32(dataReader["numberOfPurchases"]);
                     userGameList.Add(g);
                 }
                 return userGameList;
@@ -235,6 +303,312 @@ namespace SteamTaskServer.DAL
                 // write to log
                 throw (ex);
             }
+            finally
+            {
+                if (con != null)
+                {
+                    // close the db connection
+                    con.Close();
+                }
+            }
+
+        }
+
+        public List<Game> GetPricedAndRankedList(int userID,float minPrice,int minRank)
+        {
+
+            SqlConnection con;
+            SqlCommand cmd;
+
+            try
+            {
+                con = connect("igroup16_test2"); // create the connection
+            }
+            catch (Exception ex)
+            {
+                // write to log
+                throw (ex);
+            }
+
+            List<Game> filteredGameList = new List<Game>();
+
+            Dictionary<string, object> paramDic = new Dictionary<string, object>();
+            paramDic.Add("@userID", userID);
+            paramDic.Add("@minPrice", minPrice);
+            paramDic.Add("@minRank", minRank);
+
+            cmd = CreateCommandWithStoredProcedureGeneral("SP_GetPricedAndRankedList", con, paramDic);
+
+            try
+            {
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dataReader.Read())
+                {
+                    Game g = new Game();
+                    g.appid = Convert.ToInt32(dataReader["AppID"]);
+                    g.name = dataReader["Name"].ToString();
+                    g.releaseDate = Convert.ToDateTime(dataReader["Release_date"]);
+                    g.price = Convert.ToDouble(dataReader["Price"]);
+                    g.description = dataReader["description"].ToString();
+                    g.fullAudioLanguages = dataReader["Full_audio_languages"].ToString();
+                    g.headerImage = dataReader["Header_image"].ToString();
+                    g.website = dataReader["Website"].ToString();
+                    g.windows = Convert.ToBoolean(dataReader["Windows"]);
+                    g.mac = Convert.ToBoolean(dataReader["Mac"]);
+                    g.linux = Convert.ToBoolean(dataReader["Linux"]);
+                    g.scoreRank = Convert.ToInt32(dataReader["Score_rank"]);
+                    g.recommendations = dataReader["Recommendations"].ToString();
+                    g.developers = dataReader["Developers"].ToString();
+                    g.categories = dataReader["Categories"].ToString();
+                    g.genres = dataReader["Genres"].ToString();
+                    g.tags = dataReader["Tags"].ToString();
+                    g.screenshots = dataReader["Screenshots"].ToString();
+                    g.numberOfPurchases = Convert.ToInt32(dataReader["numberOfPurchases"]);
+                    filteredGameList.Add(g);
+                }
+                return filteredGameList;
+            }
+
+            catch (Exception ex)
+            {
+                // write to log
+                throw (ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    // close the db connection
+                    con.Close();
+                }
+            }
+
+        }
+        public List<Game> GetPricedList(int userID, float minPrice)
+        {
+
+            SqlConnection con;
+            SqlCommand cmd;
+
+            try
+            {
+                con = connect("igroup16_test2"); // create the connection
+            }
+            catch (Exception ex)
+            {
+                // write to log
+                throw (ex);
+            }
+
+            List<Game> filteredGameList = new List<Game>();
+
+            Dictionary<string, object> paramDic = new Dictionary<string, object>();
+            paramDic.Add("@userID", userID);
+            paramDic.Add("@minPrice", minPrice);
+           
+
+            cmd = CreateCommandWithStoredProcedureGeneral("SP_GetPricedAndRankedList", con, paramDic);
+
+            try
+            {
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dataReader.Read())
+                {
+                    Game g = new Game();
+                    g.appid = Convert.ToInt32(dataReader["AppID"]);
+                    g.name = dataReader["Name"].ToString();
+                    g.releaseDate = Convert.ToDateTime(dataReader["Release_date"]);
+                    g.price = Convert.ToDouble(dataReader["Price"]);
+                    g.description = dataReader["description"].ToString();
+                    g.fullAudioLanguages = dataReader["Full_audio_languages"].ToString();
+                    g.headerImage = dataReader["Header_image"].ToString();
+                    g.website = dataReader["Website"].ToString();
+                    g.windows = Convert.ToBoolean(dataReader["Windows"]);
+                    g.mac = Convert.ToBoolean(dataReader["Mac"]);
+                    g.linux = Convert.ToBoolean(dataReader["Linux"]);
+                    g.scoreRank = Convert.ToInt32(dataReader["Score_rank"]);
+                    g.recommendations = dataReader["Recommendations"].ToString();
+                    g.developers = dataReader["Developers"].ToString();
+                    g.categories = dataReader["Categories"].ToString();
+                    g.genres = dataReader["Genres"].ToString();
+                    g.tags = dataReader["Tags"].ToString();
+                    g.screenshots = dataReader["Screenshots"].ToString();
+                    g.numberOfPurchases = Convert.ToInt32(dataReader["numberOfPurchases"]);
+                    filteredGameList.Add(g);
+                }
+                return filteredGameList;
+            }
+
+            catch (Exception ex)
+            {
+                // write to log
+                throw (ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    // close the db connection
+                    con.Close();
+                }
+            }
+
+        }
+        public List<Game> GetRankedList(int userID, int minRank)
+        {
+
+            SqlConnection con;
+            SqlCommand cmd;
+
+            try
+            {
+                con = connect("igroup16_test2"); // create the connection
+            }
+            catch (Exception ex)
+            {
+                // write to log
+                throw (ex);
+            }
+
+            List<Game> filteredGameList = new List<Game>();
+
+            Dictionary<string, object> paramDic = new Dictionary<string, object>();
+            paramDic.Add("@userID", userID);
+            paramDic.Add("@minRank", minRank);
+
+
+            cmd = CreateCommandWithStoredProcedureGeneral("SP_GetPricedAndRankedList", con, paramDic);
+
+            try
+            {
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dataReader.Read())
+                {
+                    Game g = new Game();
+                    g.appid = Convert.ToInt32(dataReader["AppID"]);
+                    g.name = dataReader["Name"].ToString();
+                    g.releaseDate = Convert.ToDateTime(dataReader["Release_date"]);
+                    g.price = Convert.ToDouble(dataReader["Price"]);
+                    g.description = dataReader["description"].ToString();
+                    g.fullAudioLanguages = dataReader["Full_audio_languages"].ToString();
+                    g.headerImage = dataReader["Header_image"].ToString();
+                    g.website = dataReader["Website"].ToString();
+                    g.windows = Convert.ToBoolean(dataReader["Windows"]);
+                    g.mac = Convert.ToBoolean(dataReader["Mac"]);
+                    g.linux = Convert.ToBoolean(dataReader["Linux"]);
+                    g.scoreRank = Convert.ToInt32(dataReader["Score_rank"]);
+                    g.recommendations = dataReader["Recommendations"].ToString();
+                    g.developers = dataReader["Developers"].ToString();
+                    g.categories = dataReader["Categories"].ToString();
+                    g.genres = dataReader["Genres"].ToString();
+                    g.tags = dataReader["Tags"].ToString();
+                    g.screenshots = dataReader["Screenshots"].ToString();
+                    g.numberOfPurchases= Convert.ToInt32(dataReader["numberOfPurchases"]);
+                    filteredGameList.Add(g);
+                }
+                return filteredGameList;
+            }
+
+            catch (Exception ex)
+            {
+                // write to log
+                throw (ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    // close the db connection
+                    con.Close();
+                }
+            }
+
+        }
+
+        public int AddGameToList(int userID,int appID)
+        {
+
+            SqlConnection con;
+            SqlCommand cmd;
+
+            try
+            {
+                con = connect("igroup16_test2"); 
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+
+            Dictionary<string, object> paramDic = new Dictionary<string, object>();
+            paramDic.Add("@userID", userID);
+            paramDic.Add("@GameID", appID);
+
+            cmd = CreateCommandWithStoredProcedureGeneral("SP_BuyGame", con, paramDic);          // create the command
+
+            try
+            {
+               List<Game> userGames = Game.Read(userID);
+                if(userGames.Any(g=> g.appid==appID))
+                {
+                    return -1;
+
+                }
+
+                int numEffected = cmd.ExecuteNonQuery(); // execute the command
+                return numEffected;
+            }
+            catch (Exception ex)
+            {
+                // write to log
+                throw (ex);
+            }
+
+            finally
+            {
+                if (con != null)
+                {
+                    // close the db connection
+                    con.Close();
+                }
+            }
+
+        }
+        public int DeleteGameFromList(int userID, int appID)
+        {
+
+            SqlConnection con;
+            SqlCommand cmd;
+
+            try
+            {
+                con = connect("igroup16_test2");
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+
+            Dictionary<string, object> paramDic = new Dictionary<string, object>();
+            paramDic.Add("@userID", userID);
+            paramDic.Add("@GameID", appID);
+
+            cmd = CreateCommandWithStoredProcedureGeneral("SP_DeleteGame", con, paramDic);          // create the command
+
+            try
+            {
+                int numEffected = cmd.ExecuteNonQuery(); // execute the command
+                return numEffected;
+            }
+            catch (Exception ex)
+            {
+                // write to log
+                throw (ex);
+            }
+
             finally
             {
                 if (con != null)

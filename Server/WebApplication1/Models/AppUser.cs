@@ -66,6 +66,12 @@ namespace FakeSteam.BL
             return dbs.Insert(this);
         }
     
+        public int Update()
+        {
+            DBServices dbs = new DBServices();
+            return dbs.Update(this);
+
+        }
         static public List<AppUser> Read()
         {
             DBServices dbs = new DBServices();

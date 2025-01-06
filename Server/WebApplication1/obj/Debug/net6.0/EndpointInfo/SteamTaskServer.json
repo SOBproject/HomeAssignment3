@@ -41,35 +41,6 @@
             }
           }
         }
-      },
-      "post": {
-        "tags": [
-          "Games"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Game"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Game"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Game"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
       }
     },
     "/api/Games/{id}": {
@@ -133,30 +104,9 @@
             "description": "Success"
           }
         }
-      },
-      "delete": {
-        "tags": [
-          "Games"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
       }
     },
-    "/api/Games/user/{userID}": {
+    "/api/Games/userID/{userID}": {
       "get": {
         "tags": [
           "Games"
@@ -205,15 +155,83 @@
         }
       }
     },
-    "/api/Games/minPrice": {
+    "/api/Games/filterPrice/{userID}/{minPrice}": {
       "get": {
         "tags": [
           "Games"
         ],
         "parameters": [
           {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
             "name": "minPrice",
-            "in": "query",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Game"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Game"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Game"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Games/filterRank/{userID}/{minRank}": {
+      "get": {
+        "tags": [
+          "Games"
+        ],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "minRank",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -253,14 +271,32 @@
         }
       }
     },
-    "/api/Games/scoreRank/{scoreRank}": {
+    "/api/Games/filterBoth/{userID}/{minPrice}/{minRank}": {
       "get": {
         "tags": [
           "Games"
         ],
         "parameters": [
           {
-            "name": "scoreRank",
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "minPrice",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "minRank",
             "in": "path",
             "required": true,
             "schema": {
@@ -298,6 +334,66 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/Games/AddGameToMyList": {
+      "post": {
+        "tags": [
+          "Games"
+        ],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "appID",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Games/RemoveGameFromList": {
+      "delete": {
+        "tags": [
+          "Games"
+        ],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "appID",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
           }
         }
       }
@@ -369,26 +465,19 @@
         }
       }
     },
-    "/api/Users/Login/{Email}/{Password}": {
-      "post": {
+    "/api/Users/{id}": {
+      "get": {
         "tags": [
           "Users"
         ],
         "parameters": [
           {
-            "name": "Email",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Password",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -397,9 +486,7 @@
             "description": "Success"
           }
         }
-      }
-    },
-    "/api/Users/{id}": {
+      },
       "put": {
         "tags": [
           "Users"
@@ -419,17 +506,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/AppUser"
               }
             },
             "text/json": {
               "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/AppUser"
               }
             },
             "application/*+json": {
               "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/AppUser"
               }
             }
           }
@@ -452,6 +539,36 @@
             "schema": {
               "type": "integer",
               "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Users/Login/{Email}/{Password}": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "Email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Password",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -558,6 +675,10 @@
           "Screenshots": {
             "type": "string",
             "nullable": true
+          },
+          "NumberOfPurchases": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

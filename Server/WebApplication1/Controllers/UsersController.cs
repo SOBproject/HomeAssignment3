@@ -16,6 +16,16 @@ namespace FakeSteam.Controllers
             return AppUser.Read();
         }
 
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            var user = AppUser.Read().FirstOrDefault(u => u.Id == id);
+
+            return user != null
+                ? Ok(user)
+                : NotFound($"User with ID {id} could not be found");
+        }
+
         //GET api/<UsersController>/5
         [HttpPost("Login/{Email}/{Password}")]
         public IActionResult Login(string Email,string Password)
@@ -39,8 +49,10 @@ namespace FakeSteam.Controllers
 
         // PUT api/<UsersController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] AppUser user)
         {
+            user.Id = id;
+            user.Update();
         }
 
         // DELETE api/<UsersController>/5

@@ -78,7 +78,7 @@
             const email = document.getElementById('registerEmail').value;
             const password = document.getElementById('registerPassword').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
-            const regex = /^[A-Z0-9]+$/;
+            const regex = /^[A-Z0-9]{6,}$/;
 
             // Validate password format
             if (!regex.test(password)) {
@@ -103,8 +103,9 @@
             function registerSCB(status) {
                 console.log(status);
                 alert("User registered successfully!");
-              
-                document.getElementById('showLogin').click();
+                localStorage.setItem("userId", status.userId);
+                localStorage.setItem("userName", status.name);
+                window.location.href = "index.html";
             }
 
           

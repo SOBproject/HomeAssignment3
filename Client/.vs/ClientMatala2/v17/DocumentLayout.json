@@ -3,13 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\orima\\AppData\\Local\\Temp\\dc95c694-3358-4961-a37f-d19c59604ef8_class ex solution 27-12-24.zip.ef8\\temp2\\Controllers\\FlightsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|c:\\users\\orima\\desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\steamtask3\\homeassignment3\\client\\html\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|solutionrelative:html\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\orima\\AppData\\Local\\Temp\\37d8b8d4-221b-4a79-9f28-a2c321b1377a_class ex solution 27-12-24.zip.77a\\temp2\\BL\\Flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\SteamTask091224\\Client|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\html\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\SteamTask091224\\Client|solutionrelative:html\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|c:\\users\\orima\\desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\steamtask3\\homeassignment3\\client\\html\\mygames.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\html\\mygames.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|solutionrelative:html\\mygames.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
@@ -17,8 +19,12 @@
       "RelativeMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\SteamTask091224\\Client|solutionrelative:html\\mygames.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|c:\\users\\orima\\desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\steamtask3\\homeassignment3\\client\\html\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\html\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|solutionrelative:html\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\js\\ajaxcalls.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|solutionrelative:js\\ajaxcalls.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask081224\\SteamTask061224\\ClientSteam|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\html\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -29,16 +35,8 @@
       "RelativeMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|solutionrelative:css\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\html\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|solutionrelative:html\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\js\\gameslist.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|solutionrelative:js\\gameslist.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\SteamTask091224\\Client|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\html\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\SteamTask091224\\Client|solutionrelative:html\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -48,33 +46,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Flight.cs",
-              "DocumentMoniker": "C:\\Users\\orima\\AppData\\Local\\Temp\\37d8b8d4-221b-4a79-9f28-a2c321b1377a_class ex solution 27-12-24.zip.77a\\temp2\\BL\\Flight.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\AppData\\Local\\Temp\\37d8b8d4-221b-4a79-9f28-a2c321b1377a_class ex solution 27-12-24.zip.77a\\temp2\\BL\\Flight.cs",
-              "ToolTip": "C:\\Users\\orima\\AppData\\Local\\Temp\\37d8b8d4-221b-4a79-9f28-a2c321b1377a_class ex solution 27-12-24.zip.77a\\temp2\\BL\\Flight.cs [Read Only]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\AppData\\Local\\Temp\\37d8b8d4-221b-4a79-9f28-a2c321b1377a_class ex solution 27-12-24.zip.77a\\temp2\\BL\\Flight.cs [Read Only]",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T21:10:57.782Z",
-              "EditorCaption": " [Read Only]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FlightsController.cs",
-              "DocumentMoniker": "C:\\Users\\orima\\AppData\\Local\\Temp\\dc95c694-3358-4961-a37f-d19c59604ef8_class ex solution 27-12-24.zip.ef8\\temp2\\Controllers\\FlightsController.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\AppData\\Local\\Temp\\dc95c694-3358-4961-a37f-d19c59604ef8_class ex solution 27-12-24.zip.ef8\\temp2\\Controllers\\FlightsController.cs",
-              "ToolTip": "C:\\Users\\orima\\AppData\\Local\\Temp\\dc95c694-3358-4961-a37f-d19c59604ef8_class ex solution 27-12-24.zip.ef8\\temp2\\Controllers\\FlightsController.cs [Read Only]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\AppData\\Local\\Temp\\dc95c694-3358-4961-a37f-d19c59604ef8_class ex solution 27-12-24.zip.ef8\\temp2\\Controllers\\FlightsController.cs [Read Only]",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T21:09:57.691Z",
-              "EditorCaption": " [Read Only]"
+              "DocumentIndex": 5,
+              "Title": "ajaxcalls.js",
+              "DocumentMoniker": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\JS\\ajaxcalls.js",
+              "RelativeDocumentMoniker": "JS\\ajaxcalls.js",
+              "ToolTip": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\JS\\ajaxcalls.js",
+              "RelativeToolTip": "JS\\ajaxcalls.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-01-02T04:25:47.526Z"
             },
             {
               "$type": "Document",
@@ -84,14 +68,13 @@
               "RelativeDocumentMoniker": "HTML\\myGames.html",
               "ToolTip": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\HTML\\myGames.html",
               "RelativeToolTip": "HTML\\myGames.html",
-              "ViewState": "AgIAABoAAAAAAAAAAAASwCUAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAAACUAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-12-31T17:10:33.435Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T17:10:33.435Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "index.css",
               "DocumentMoniker": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\CSS\\index.css",
               "RelativeDocumentMoniker": "CSS\\index.css",
@@ -115,19 +98,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\HTML\\index.html",
               "RelativeDocumentMoniker": "HTML\\index.html",
               "ToolTip": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\HTML\\index.html",
               "RelativeToolTip": "HTML\\index.html",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAABgAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAABoAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-12-28T18:52:28.563Z"
+              "WhenOpened": "2024-12-28T18:52:28.563Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\HTML\\index.html",
               "RelativeDocumentMoniker": "HTML\\index.html",
@@ -157,14 +141,13 @@
               "RelativeDocumentMoniker": "HTML\\login.html",
               "ToolTip": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\HTML\\login.html",
               "RelativeToolTip": "HTML\\login.html",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAkwIsAAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAGUAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-12-10T16:34:19.156Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-10T16:34:19.156Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "login.html",
               "DocumentMoniker": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\HTML\\login.html",
               "RelativeDocumentMoniker": "HTML\\login.html",

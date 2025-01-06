@@ -60,6 +60,9 @@ namespace FakeSteam.BL
         [JsonPropertyName("Screenshots")]
         public string screenshots { get; set; }
 
+        [JsonPropertyName("NumberOfPurchases")]
+        public int numberOfPurchases { get; set; }
+
 //Constructors
 
         public static List<Game> gamesList = new List<Game>();
@@ -87,15 +90,16 @@ namespace FakeSteam.BL
             this.screenshots = screenshots;
         }
 //Methods
-        public static bool Insert(Game NewGame)
+        public static int Insert(int userID, int appID)
         {
-            if (gamesList.Any(game => game.appid == NewGame.appid || game.name == NewGame.name))
-            {
-                return false;
-            }
+            DBServices dbs = new DBServices();
+            return dbs.AddGameToList(userID,appID);
+        }
 
-            gamesList.Add(NewGame);
-            return true;
+        public static int Delete(int userID, int appID)
+        {
+            DBServices dbs = new DBServices();
+            return dbs.DeleteGameFromList(userID, appID);
         }
 
         public static bool DeleteById(int id)
@@ -123,34 +127,22 @@ namespace FakeSteam.BL
             return db.GetUserGameList(appID);
         }
 
-        public List<Game> GetByPrice(float MinPrice)
+        static public List<Game> GetPricedList(int userID,float minPrice)
         {
             DBServices dbs = new DBServices();
-            List<Game> selectedGames = new List<Game>();
-
-            foreach (Game game in dbs.ReadGames())
-            {
-                if (game.price > MinPrice)
-                {
-                    selectedGames.Add(game);
-
-                }
-            }
-            return selectedGames;
+            return dbs.GetPricedList(userID, minPrice);
         }
 
-        public List<Game> GetByRankScore(int Score_rank)
+        static public List<Game> GetRankedList(int userID, int minRank)
         {
-            List<Game> selectedGames = new List<Game>();
-            foreach (Game game in gamesList)
-            {
-                if (game.scoreRank > Score_rank)
-                {
-                    selectedGames.Add(game);
+            DBServices dbs = new DBServices();
+            return dbs.GetRankedList(userID, minRank);
+        }
 
-                }
-            }
-            return selectedGames;
+        static public List<Game> GetPricedAndRankedList(int userID,float minPrice ,int minRank)
+        {
+            DBServices dbs = new DBServices();
+            return dbs.GetPricedAndRankedList(userID, minPrice, minRank);
         }
 
 
