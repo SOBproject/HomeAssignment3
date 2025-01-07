@@ -18,6 +18,25 @@
     <h1>Games:</h1>
     <button class="goto-button" onclick="window.location.href='myGames.html';">Go to My Games</button>
     <button class="goto-button" onclick="window.location.href='login.html';">Go to Login Page</button>
+    <button class="goto-button" id="editProfileBtn">Edit My Profile</button>
+    <div id="editProfileModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h2>Edit Profile</h2>
+            <form id="editProfileForm">
+                <label for="editUsername">Username:</label>
+                <input type="text" id="editUsername" placeholder="Enter new username">
+
+                <label for="editEmail">Email:</label>
+                <input type="email" id="editEmail" placeholder="Enter new email">
+
+                <label for="editPassword">Password:</label>
+                <input type="password" id="editPassword" placeholder="Enter new password">
+
+                <button type="submit" class="btn">Save Changes</button>
+            </form>
+        </div>
+    </div>
     <div class="card-container" id="gamescontainer"></div>
 
     <script>
@@ -32,12 +51,12 @@
             }
         });
 
-        $(document).ready(function () {   
+        $(document).ready(function () {
             loadAllGames();
         });
 
         function loadAllGames() {
-            const api = "https://localhost:7238/api/Games";
+            const api = "https://proj.ruppin.ac.il/igroup16/test2/tar1/api/Games";
 
             ajaxCall(
                 'GET',
@@ -66,12 +85,12 @@
                 const card = document.createElement("div");
                 card.classList.add("card");
                 card.innerHTML = `
-                    <img src="${game.Header_image}" alt="${game.Name}">
-                    <h3>${game.Name}</h3>
-                    <p><strong>Release Date:</strong> ${game.Release_date}</p>
-                    <p><strong>Price:</strong> $${game.Price}</p>
-                    <p><strong>Score Rank:</strong> ${game.scoreRank}</p>
-                    <button class="AddBTN" data-appid="${game.AppID}">Add to my list</button>`;
+                            <img src="${game.Header_image}" alt="${game.Name}">
+                            <h3>${game.Name}</h3>
+                            <p><strong>Release Date:</strong> ${game.Release_date}</p>
+                            <p><strong>Price:</strong> $${game.Price}</p>
+                            <p><strong>Score Rank:</strong> ${game.scoreRank}</p>
+                            <button class="AddBTN" data-appid="${game.AppID}">Add to my list</button>`;
                 gamesContainer.appendChild(card);
             });
 
@@ -87,7 +106,7 @@
         }
 
         function AddToList(appID) {
-            let api = "https://localhost:7238/api/Games";
+            let api = "https://proj.ruppin.ac.il/igroup16/test2/tar1/api/Games";
             const userID = localStorage.getItem('userId');
             if (!userID) {
                 alert('User not logged in. Please log in first.');
@@ -100,14 +119,113 @@
                 null,
                 function (response) {
                     console.log(response);
-                    alert('Game added successfully!');
+                    Swal.fire({
+                        title: "Game added!",
+                        icon: "success"
+                    })
                 },
                 function (error) {
                     console.error("Failed to add game:", error);
-                    alert("Failed to add game. Please try again.");
+                    Swal.fire({
+                        title: "Game already added!",
+                        icon: "error"
+                    });
                 }
             );
         }
+        //open editor and fill user data
+        document.getElementById('editProfileBtn').addEventListener('click', function () {
+            loadProfileDetails(); 
+            document.getElementById('editProfileModal').style.display = 'block';
+        });
+        //close editor
+        document.getElementById('closeModal').addEventListener('click', function () {
+            document.getElementById('editProfileModal').style.display = 'none';
+        });
+        //to fill the user data from the DB
+        function loadProfileDetails() {
+            let api = 'https://proj.ruppin.ac.il/igroup16/test2/tar1/api/Users'
+            const userId = localStorage.getItem("userId");
+
+            if (!userId) {
+                alert("User not logged in. Please log in again.");
+                return;
+            }
+
+            ajaxCall(
+                "GET",
+                `${api}/${userId}`,
+                null,
+                function (response) {
+                    document.getElementById('editUsername').value = response.name;
+                    document.getElementById('editEmail').value = response.email;
+                    document.getElementById('editPassword').value = response.password; 
+                },
+                function (error) {
+                    console.error("Failed to load user details:", error);
+                    alert("Failed to load user details. Please try again.");
+                }
+            );
+        }
+
+        // Submit button click
+        document.getElementById('editProfileForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            let api = 'https://proj.ruppin.ac.il/igroup16/test2/tar1/api/Users'
+            const updatedUser = {
+                name: document.getElementById('editUsername').value.trim(),
+                email: document.getElementById('editEmail').value.trim(),
+                password: document.getElementById('editPassword').value.trim()
+            };
+
+            const passwordRegex = /^[A-Z0-9]{6,}$/;
+            if (updatedUser.password && !passwordRegex.test(updatedUser.password)) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Invalid Password',
+                    text: 'Password must be at least 6 characters long and contain only uppercase letters (A-Z) and numbers (0-9).',
+                });
+                return;
+            }
+//confirmation
+            Swal.fire({
+                title: 'Save Changes?',
+                text: "Do you want to save your updated profile details?",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, save it!',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // ✅ Send Update Request
+                    ajaxCall(
+                        "PUT",
+                        `${api}/${localStorage.getItem("userId")}`,
+                        JSON.stringify(updatedUser), // Pass updated fields in the body
+                        function (response) {
+                            console.log("Profile updated successfully:", response);
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Profile Updated',
+                                text: 'Your profile has been successfully updated!',
+                            }).then(() => {
+                                document.getElementById('editProfileModal').style.display = 'none';
+                            });
+                        },
+                        function (error) {
+                            console.error("Failed to update profile:", error);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Update Failed',
+                                text: 'Failed to update your profile. Please try again later.',
+                            });
+                        }
+                    );
+                }
+            });
+        });
+
+
     </script>
 </body>
 </html>

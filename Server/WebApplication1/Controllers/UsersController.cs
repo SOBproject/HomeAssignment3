@@ -74,11 +74,36 @@ namespace FakeSteam.Controllers
 
         // PUT api/<UsersController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] AppUser user)
+        public IActionResult Put(int id, [FromBody] AppUser user)
         {
-            user.Id = id;
-            user.Update();
+            try
+            {
+                user.Id = id;
+                int result = user.Update();
+                if (result > 0)
+                {
+                    return Ok(new
+                    {
+                        message = "User updated!", 
+                    });
+                }
+                else
+                {
+                    return BadRequest(new { message = "Failed to update user details." });
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    message = "An error occurred during update.",
+                    details = ex.Message
+                });
+            }
         }
+            
+           
+        
 
         // DELETE api/<UsersController>/5
         [HttpDelete("{id}")]

@@ -1,0 +1,17 @@
+C:\Users\orima\Desktop\שנה ד\צד שרת\SteamTask3\HomeAssignment3\Server\WebApplication1\obj\Release\net6.0\PubTmp\Out\SteamTaskServer.exe
+C:\Users\orima\Desktop\שנה ד\צד שרת\SteamTask3\HomeAssignment3\Server\WebApplication1\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+C:\Users\orima\Desktop\שנה ד\צד שרת\SteamTask3\HomeAssignment3\Server\WebApplication1\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\Users\orima\Desktop\שנה ד\צד שרת\SteamTask3\HomeAssignment3\Server\WebApplication1\obj\Release\net6.0\PubTmp\Out\SteamTaskServer.dll
+C:\Users\orima\Desktop\שנה ד\צד שרת\SteamTask3\HomeAssignment3\Server\WebApplication1\obj\Release\net6.0\PubTmp\Out\SteamTaskServer.deps.json
+C:\Users\orima\Desktop\שנה ד\צד שרת\SteamTask3\HomeAssignment3\Server\WebApplication1\obj\Release\net6.0\PubTmp\Out\SteamTaskServer.runtimeconfig.json
+C:\Users\orima\Desktop\שנה ד\צד שרת\SteamTask3\HomeAssignment3\Server\WebApplication1\obj\Release\net6.0\PubTmp\Out\SteamTaskServer.pdb
+C:\Users\orima\Desktop\שנה ד\צד שרת\SteamTask3\HomeAssignment3\Server\WebApplication1\obj\Release\net6.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\orima\Desktop\שנה ד\צד שרת\SteamTask3\HomeAssignment3\Server\WebApplication1\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\orima\Desktop\שנה ד\צד שרת\SteamTask3\HomeAssignment3\Server\WebApplication1\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\orima\Desktop\שנה ד\צד שרת\SteamTask3\HomeAssignment3\Server\WebApplication1\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\orima\Desktop\שנה ד\צד שרת\SteamTask3\HomeAssignment3\Server\WebApplication1\obj\Release\net6.0\PubTmp\Out\System.Data.SqlClient.dll
+C:\Users\orima\Desktop\שנה ד\צד שרת\SteamTask3\HomeAssignment3\Server\WebApplication1\obj\Release\net6.0\PubTmp\Out\runtimes\win-arm64\native\sni.dll
+C:\Users\orima\Desktop\שנה ד\צד שרת\SteamTask3\HomeAssignment3\Server\WebApplication1\obj\Release\net6.0\PubTmp\Out\runtimes\win-x64\native\sni.dll
+C:\Users\orima\Desktop\שנה ד\צד שרת\SteamTask3\HomeAssignment3\Server\WebApplication1\obj\Release\net6.0\PubTmp\Out\runtimes\win-x86\native\sni.dll
+C:\Users\orima\Desktop\שנה ד\צד שרת\SteamTask3\HomeAssignment3\Server\WebApplication1\obj\Release\net6.0\PubTmp\Out\runtimes\unix\lib\net6.0\System.Data.SqlClient.dll
+C:\Users\orima\Desktop\שנה ד\צד שרת\SteamTask3\HomeAssignment3\Server\WebApplication1\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Data.SqlClient.dll
