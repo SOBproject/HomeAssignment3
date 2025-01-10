@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\html\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|c:\\users\\orima\\desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\steamtask3\\homeassignment3\\client\\html\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|solutionrelative:html\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|c:\\users\\orima\\desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\steamtask3\\homeassignment3\\client\\html\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\html\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{423550AF-4238-4727-8A61-BFB065BE556E}|C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client|solutionrelative:html\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
@@ -42,8 +42,7 @@
               "RelativeToolTip": "JS\\ajaxcalls.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-01-02T04:25:47.526Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T04:25:47.526Z"
             },
             {
               "$type": "Document",
@@ -55,8 +54,7 @@
               "RelativeToolTip": "HTML\\myGames.html",
               "ViewState": "AgIAAB4AAAAAAAAAAAAAADAAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-12-31T17:10:33.435Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T17:10:33.435Z"
             },
             {
               "$type": "Document",
@@ -68,8 +66,7 @@
               "RelativeToolTip": "HTML\\index.html",
               "ViewState": "AgIAAKEAAAAAAAAAAADwv60AAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-12-28T18:52:28.563Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-28T18:52:28.563Z"
             },
             {
               "$type": "Document",
@@ -91,10 +88,20 @@
               "RelativeDocumentMoniker": "HTML\\login.html",
               "ToolTip": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Client\\HTML\\login.html",
               "RelativeToolTip": "HTML\\login.html",
-              "ViewState": "AgIAADEAAAAAAAAAAADwvz0AAABFAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAAAAAEAAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2024-12-10T16:34:19.156Z",
               "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 50,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             }
           ]
         }

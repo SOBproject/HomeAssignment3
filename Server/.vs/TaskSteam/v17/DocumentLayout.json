@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|c:\\users\\orima\\desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\steamtask3\\homeassignment3\\server\\webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|solutionrelative:webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|c:\\users\\orima\\desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\steamtask3\\homeassignment3\\server\\webapplication1\\models\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|solutionrelative:webapplication1\\models\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|c:\\users\\orima\\desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\steamtask3\\homeassignment3\\server\\webapplication1\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|solutionrelative:webapplication1\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|c:\\users\\orima\\desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\steamtask3\\homeassignment3\\server\\webapplication1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|solutionrelative:webapplication1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|c:\\users\\orima\\desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\steamtask3\\homeassignment3\\server\\webapplication1\\dal\\dbservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|solutionrelative:webapplication1\\dal\\dbservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|c:\\users\\orima\\desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\steamtask3\\homeassignment3\\server\\webapplication1\\models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,12 +23,12 @@
       "RelativeMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|solutionrelative:webapplication1\\controllers\\gamescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|c:\\users\\orima\\desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\steamtask3\\homeassignment3\\server\\webapplication1\\models\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|solutionrelative:webapplication1\\models\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|c:\\users\\orima\\desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\steamtask3\\homeassignment3\\server\\webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|solutionrelative:webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|c:\\users\\orima\\desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\steamtask3\\homeassignment3\\server\\webapplication1\\dal\\dbservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|solutionrelative:webapplication1\\dal\\dbservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|c:\\users\\orima\\desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\steamtask3\\homeassignment3\\server\\webapplication1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A51C9400-5894-4A8D-AEED-F60AB9B1638E}|WebApplication1\\SteamTaskServer.csproj|solutionrelative:webapplication1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 50,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Server\\WebApplication1\\Program.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Program.cs",
@@ -61,33 +61,36 @@
               "RelativeDocumentMoniker": "WebApplication1\\Controllers\\GamesController.cs",
               "ToolTip": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Server\\WebApplication1\\Controllers\\GamesController.cs",
               "RelativeToolTip": "WebApplication1\\Controllers\\GamesController.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAgwCMAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T15:14:21.483Z"
+              "WhenOpened": "2025-01-06T15:14:21.483Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Game.cs",
               "DocumentMoniker": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Server\\WebApplication1\\Models\\Game.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Models\\Game.cs",
               "ToolTip": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Server\\WebApplication1\\Models\\Game.cs",
               "RelativeToolTip": "WebApplication1\\Models\\Game.cs",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T15:13:31.309Z"
+              "WhenOpened": "2025-01-06T15:13:31.309Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "DBServices.cs",
               "DocumentMoniker": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Server\\WebApplication1\\DAL\\DBServices.cs",
               "RelativeDocumentMoniker": "WebApplication1\\DAL\\DBServices.cs",
               "ToolTip": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Server\\WebApplication1\\DAL\\DBServices.cs",
               "RelativeToolTip": "WebApplication1\\DAL\\DBServices.cs",
-              "ViewState": "AgIAAF0AAAAAAAAAAAApwGkAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-28T18:21:36.158Z"
+              "WhenOpened": "2024-12-28T18:21:36.158Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -99,7 +102,8 @@
               "RelativeToolTip": "WebApplication1\\Models\\AppUser.cs",
               "ViewState": "AgIAAEUAAAAAAAAAAAAhwFAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T16:34:50.436Z"
+              "WhenOpened": "2024-12-10T16:34:50.436Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -109,14 +113,14 @@
               "RelativeDocumentMoniker": "WebApplication1\\Controllers\\UsersController.cs",
               "ToolTip": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Server\\WebApplication1\\Controllers\\UsersController.cs",
               "RelativeToolTip": "WebApplication1\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAQwGYAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-10T16:34:43.772Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\orima\\Desktop\\\u05E9\u05E0\u05D4 \u05D3\\\u05E6\u05D3 \u05E9\u05E8\u05EA\\SteamTask3\\HomeAssignment3\\Server\\WebApplication1\\appsettings.json",
               "RelativeDocumentMoniker": "WebApplication1\\appsettings.json",
